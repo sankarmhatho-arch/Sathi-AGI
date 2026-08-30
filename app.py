@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="Sathi AGI", page_icon="🤖")
 
 st.title("🤖 SATHI AGI")
-st.write("ChatGPT जैसी AGI - हर सवाल का जवाब!")
+st.write("ChatGPT जैसी AGI!")
 st.write("---")
 
 st.header("💬 Sathi से बात करो")
@@ -17,9 +17,9 @@ if user_message:
         API_KEY = st.secrets["GEMINI_API_KEY"]
         genai.configure(api_key=API_KEY)
         
-        model = genai.GenerativeModel("gemini-pro")
+        model = genai.GenerativeModel("gemini-1.5-flash")
         response = model.generate_content(
-            f"तुम Sathi हो - Mobile se bani Super AGI। Creator: Shankar। हिंदी में जवाब दो।\n\nसवाल: {user_message}"
+            f"तुम Sathi हो - Mobile se bani Super AGI। हिंदी में जवाब दो।\n\nसवाल: {user_message}"
         )
         st.success(f"🤖 Sathi: {response.text}")
     except Exception as e:
